@@ -6,10 +6,10 @@ use log4rs::encode::pattern::PatternEncoder;
 use std::sync::Once;
 
 pub mod targets {
-    pub static SERVER: &str = "fiber::wsserver";
-    pub static CLIENT: &str = "fiber::wsclient";
-    pub static PRODUCER: &str = "fiber::producer";
-    pub static CONSUMER: &str = "fiber::consumer";
+    pub static SERVER: &str = "clibri::wsserver";
+    pub static CLIENT: &str = "clibri::wsclient";
+    pub static PRODUCER: &str = "clibri::producer";
+    pub static CONSUMER: &str = "clibri::consumer";
 }
 
 static INIT: Once = Once::new();
@@ -63,11 +63,11 @@ pub fn init() {
                     ) {
                     Ok(config) => {
                         if let Err(e) = log4rs::init_config(config) {
-                            eprintln!("Fiber: fail to init log4rs. Error: {}", e);
+                            eprintln!("clibri: fail to init log4rs. Error: {}", e);
                         }
                     }
                     Err(e) => {
-                        eprintln!("Fiber: fail to build config for log4rs. Error: {}", e);
+                        eprintln!("clibri: fail to build config for log4rs. Error: {}", e);
                     }
                 };
             }
@@ -88,11 +88,11 @@ pub fn init() {
                 ) {
                 Ok(config) => {
                     if let Err(e) = log4rs::init_config(config) {
-                        eprintln!("Fiber: fail to init log4rs. Error: {}", e);
+                        eprintln!("clibri: fail to init log4rs. Error: {}", e);
                     }
                 }
                 Err(e) => {
-                    eprintln!("Fiber: fail to build config for log4rs. Error: {}", e);
+                    eprintln!("clibri: fail to build config for log4rs. Error: {}", e);
                 }
             };
         }

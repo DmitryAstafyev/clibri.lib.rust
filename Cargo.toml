@@ -1,15 +1,15 @@
 [package]
-name = "fiber"
+name = "clibri"
 version = "0.1.0"
 authors = ["DmitryAstafyev <D.Astafyev@outlook.com>"]
 edition = "2018"
-description = "Definition of client and server interfaces for fiber project"
-repository = "https://github.com/DmitryAstafyev/fiber.lib.rust"
+description = "Definition of client and server interfaces for clibri project"
+repository = "https://github.com/DmitryAstafyev/clibri.lib.rust"
 license = "Apache-2.0"
 license-file = "LICENSE"
-homepage = "https://github.com/DmitryAstafyev/fiber"
+homepage = "https://github.com/DmitryAstafyev/clibri"
 readme = "README.md"
-keywords = ["websocket", "fiber", "protocol"]
+keywords = ["websocket", "clibri", "protocol"]
 categories = ["network-programming"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
