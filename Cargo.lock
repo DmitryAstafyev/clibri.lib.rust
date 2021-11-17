@@ -76,6 +76,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "clibri"
+version = "0.1.0"
+dependencies = [
+ "async-trait",
+ "futures",
+ "log",
+ "log4rs",
+ "tokio",
+ "uuid",
+]
+
+[[package]]
 name = "derivative"
 version = "2.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -91,18 +103,6 @@ name = "dtoa"
 version = "0.4.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "56899898ce76aaf4a0f24d914c97ea6ed976d42fec6ad33fcbb0a1103e07b2b0"
-
-[[package]]
-name = "clibri"
-version = "0.1.0"
-dependencies = [
- "async-trait",
- "futures",
- "log",
- "log4rs",
- "tokio",
- "uuid",
-]
 
 [[package]]
 name = "fnv"
