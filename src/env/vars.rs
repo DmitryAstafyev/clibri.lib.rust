@@ -1,7 +1,7 @@
 use log::LevelFilter;
 
 pub fn debug_mode() -> Option<bool> {
-    match std::env::var("clibri_DEBUG_MODE") {
+    match std::env::var("CLIBRI_DEBUG_MODE") {
         Ok(value) => {
             if value.to_ascii_lowercase() == "true"
                 || value.to_ascii_lowercase() == "on"
@@ -24,7 +24,7 @@ mod levels {
     pub const TRACE: &str = "trace";
 }
 pub fn log_level() -> Option<LevelFilter> {
-    match std::env::var("clibri_LOG_LEVEL") {
+    match std::env::var("CLIBRI_LOG_LEVEL") {
         Ok(value) => {
             if value.to_ascii_lowercase() == levels::ERROR {
                 Some(LevelFilter::Error)
@@ -45,7 +45,7 @@ pub fn log_level() -> Option<LevelFilter> {
 }
 
 pub fn root_log_level() -> LevelFilter {
-    match std::env::var("clibri_ROOT_LOG_LEVEL") {
+    match std::env::var("CLIBRI_ROOT_LOG_LEVEL") {
         Ok(value) => {
             if value.to_ascii_lowercase() == levels::ERROR {
                 LevelFilter::Error
