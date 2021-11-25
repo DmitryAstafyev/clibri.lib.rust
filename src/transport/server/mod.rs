@@ -1,5 +1,5 @@
 use async_trait::async_trait;
-use tokio::sync::mpsc::UnboundedReceiver;
+use tokio::sync::mpsc::Receiver;
 use uuid::Uuid;
 
 pub type Sending = (Vec<u8>, Option<Uuid>);
@@ -26,6 +26,6 @@ pub trait Control<E: std::error::Error>: Send + Clone {
 #[async_trait]
 pub trait Impl<E: std::error::Error + Clone, C: Control<E> + Send + Clone>: Send {
     async fn listen(&mut self) -> Result<(), E>;
-    fn observer(&mut self) -> Result<UnboundedReceiver<Events<E>>, E>;
+    fn observer(&mut self) -> Result<Receiver<Events<E>>, E>;
     fn control(&self) -> C;
 }
