@@ -28,6 +28,18 @@ pub enum Event<E: Error> {
     Message(Message),
 }
 
+impl<E: Error> std::fmt::Display for Event<E> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let output = match self {
+            Event::Connected(addr) => format!("Connected({})", addr),
+            Event::Disconnected => String::from("Disconnected"),
+            Event::Error(err) => format!("Error({})", err),
+            Event::Message(msg) => format!("Message({:?})", msg),
+        };
+        write!(f, "{}", output)
+    }
+}
+
 #[async_trait]
 pub trait Control<E: Error>: Send + Clone {
     async fn shutdown(&self) -> Result<(), E>;
