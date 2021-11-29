@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use std::net::SocketAddr;
-use tokio::sync::mpsc::Receiver;
+use tokio::sync::mpsc::UnboundedReceiver;
 
 pub trait Error: 'static + std::error::Error + Clone + Sync + Send {}
 
@@ -49,6 +49,6 @@ pub trait Control<E: Error>: Send + Clone {
 #[async_trait]
 pub trait Impl<E: Error, C: Control<E> + Send + Clone>: Send {
     async fn connect(&mut self) -> Result<(), E>;
-    fn observer(&mut self) -> Result<Receiver<Event<E>>, E>;
+    fn observer(&mut self) -> Result<UnboundedReceiver<Event<E>>, E>;
     fn control(&self) -> C;
 }
