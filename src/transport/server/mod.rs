@@ -35,7 +35,7 @@ impl<E: Error> std::fmt::Display for Events<E> {
 }
 
 #[async_trait]
-pub trait Control<E: Error>: Send + Clone {
+pub trait Control<E: Error>: 'static + Send + Sync + Clone {
     async fn shutdown(&self) -> Result<(), E>;
     async fn send(&self, buffer: Vec<u8>, client: Option<Uuid>) -> Result<(), E>;
     async fn disconnect(&self, client: Uuid) -> Result<(), E>;
@@ -43,7 +43,7 @@ pub trait Control<E: Error>: Send + Clone {
 }
 
 #[async_trait]
-pub trait Impl<E: Error + Clone, C: Control<E> + Send + Clone>: Send {
+pub trait Impl<E: Error + Clone, C: Control<E>>: 'static + Send {
     async fn listen(&mut self) -> Result<(), E>;
     fn observer(&mut self) -> Result<UnboundedReceiver<Events<E>>, E>;
     fn control(&self) -> C;

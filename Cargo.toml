@@ -1,6 +1,6 @@
 [package]
 name = "clibri"
-version = "0.1.6"
+version = "0.1.7"
 authors = ["DmitryAstafyev <D.Astafyev@outlook.com>"]
 edition = "2018"
 description = "Definition of client and server interfaces for clibri project"
